@@ -1,4 +1,4 @@
-// components/LoginForm.js
+
 "use client";
 
 import { useState } from 'react';
@@ -13,7 +13,7 @@ const LoginForm = () => {
     e.preventDefault();
     try {
        
-      const data = await postRequest(`${API_BASE_URL}/api/token`, { username, password });
+      const data = await postRequest(`${API_BASE_URL}/api/token`, { username, password },false);
       console.log('Login successful', data);
       if (data.accessToken && data.refreshToken) {
         setCookie('accessToken', data.accessToken, { expires: 1 }); 
