@@ -41,7 +41,8 @@ const base = (authorization: boolean = false): AxiosInstance => {
           console.log({ refreshToken });
           if (!authorization) return;
           if (!refreshToken) {
-            return;
+            //  delete user from storage
+            return;          
           }
           options.headers["Content-Type"] = "application/json";
           instance.interceptors.response.eject(responseInterceptor);
